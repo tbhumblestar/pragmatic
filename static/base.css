@@ -1,0 +1,20 @@
+.pragmatic_logo{
+margin-top : 1rem ; font-family: 'Indie Flower', cursive;
+}
+
+.pragmatic_footer_button{font-size : 1.2rem
+}
+
+.pragmatic_footer{
+text-align : center ; margin-top : 2rem
+}
+
+.pragmatic_header{
+text-align : center ; margin : 2rem 0;
+}
+
+@media screen and (max-width:500px){
+    html {
+        font-size:13px;
+    }
+}

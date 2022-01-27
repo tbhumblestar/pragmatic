@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style = "text-align : center; max-width:600px ;margin : 4rem auto;">
+      <div>
+        <h4>Login</h4>
+      </div>
+      <div>
+        <form action="" method = "post">
+          {% csrf_token %}
+<!--          {{form}}-->
+<!--바로위는 django에서 기본적으로 제공해주는 form을 사용하겠다는 것임. 이 form은 어디서오냐? urls.py에서 loginview.as_view에 의해 오는 듯함          -->
+          {% bootstrap_form form %}
+          <input type = "submit" class = "btn btn-dark rounded-pill col-6 mt-3">
+<!--col-6 : 부모넓이 12중 6, rounded-pill : 알약처럼 둥글둥글, mt-3 : margin-top:3-->
+        </form>
+      </div>
+    </div>
+
+
+{% endblock %}

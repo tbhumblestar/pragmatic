@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style = "text-align : center; max-width:600px ;margin : 4rem auto;">
+        <div class = "mb-4">
+            <h4>Update Profile</h4>
+        </div>
+        <form action ="{% url 'profileapp:update' pk=target_profile.pk %}" method  = "post" enctype = "multipart/form-data">
+        {% csrf_token %}
+<!--account app의 'create'라는 이름의 라우팅을 찾아서 넣어라-->
+<!--accountapp/create/보다 훨씬 더 가독성이 높음-->
+<!--post메서드 > csrf token사용해야함!-->
+<!--이미지파일을 올릴때는 enctype = multipart/form-data를 설정을 반드시 해주야 함-->
+
+<!--            {{ form }}-->
+<!--views.py의 AccountCreateView에서 form을 장고 기본폼으로 설정해줬음 > 그 form이 저기에 반영됨-->
+                      {% bootstrap_form form %}
+            <input type = "submit" class = "btn btn-dark rounded-pill col-6 mt-3">
+        </form>
+
+    </div>
+
+
+{% endblock %}

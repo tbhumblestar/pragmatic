@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div>
+    <div style = "text-align : center; max-width:600px ;margin : 4rem auto;">
+
+        <h1>
+            {{ target_article.title }}
+        </h1>
+
+        <h4>
+            {{ target_article.writer.profile.nickname }}
+            <!--profile은 profileapp의 model에서 작성한 related_name임
+            profile의 nickname에 접근하기 위해 이런식으로 사용-->
+        </h4>
+        <hr>
+
+        <img style="width: 100% ; border-radius: 1rem; margin-top:2rem"
+                src="{{ target_article.image.url }}" alt ="">
+
+        <p>
+            {{ target_article.content }}
+        </p>
+
+        {% if target_article.writer ==  user %}
+        <a href = "{% url 'articleapp:update' pk=target_article.pk %}" class = "btn btn-primary rounded-pill col-3">
+            Update
+        </a>
+        <span style = "visibility:hidden">공백입니다</span>
+        <a href = "{% url 'articleapp:delete' pk=target_article.pk %}" class = "btn btn-danger rounded-pill col-3">
+            Delete
+        </a>
+        {% endif%}
+        <hr>
+
+        {% for comment in target_article.comment.all %}
+<!--모든 comment는, comment의 모델에서 foreignkey로 엮여져 있음 article-->
+            {% include 'commentapp/detail.html' with comment=comment %}
+        {% endfor %}
+
+        {% include 'commentapp/create.html' with article=target_article %}
+
+    </div>
+</div>
+
+{% endblock %}

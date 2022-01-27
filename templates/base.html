@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko">
+
+{% include 'head.html' %}
+
+<body style = "font-family: 'NanumGoDigANiGoGoDing';">
+
+    {% include 'header.html' %}
+    <hr>
+<!--    #content라는 block을 만들어줌. block은 endblock으로 어디까지가 block인지를 명시해줘야 함-->
+    {% block content %}
+    {% endblock %}
+    <hr>
+    {% include 'footer.html' %}
+</body>
+</html>

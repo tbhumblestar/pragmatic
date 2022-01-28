@@ -18,3 +18,21 @@ text-align : center ; margin : 2rem 0;
         font-size:13px;
     }
 }
+
+a {
+text-decoration:none;
+    color:black;
+}
+
+a:hover {
+    color:powderblue; transform:scale(1.05);
+}
+
+.pragmatic_header_nav {
+    margin: 0 0.5rem;
+    transform:scale(1.05);
+}
+
+.pragmatic_header_navbar {
+    margin: 1.5rem 0;
+}

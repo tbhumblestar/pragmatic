@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style = "text-align : center; max-width:600px ;margin : 4rem auto;">
+        <img src="{{ target_project.image.url }}" alt = ""
+             style = "height:10vw ;width: auto; border-radius:15rem ;margin-bottom:2rem;">
+       <h2>
+           {{ target_project.title }}
+       </h2>
+
+        <h4 style = "margin-bottom:3rem">
+            {{ target_project.description }}
+        </h4>
+
+    </div>
+
+
+{% endblock %}

@@ -3,32 +3,36 @@
     <div>
         <h1 class = "pragmatic_logo">Pragmatic</h1>
     </div>
-    <div style = "font-size : 1.5rem">
-        <a href = "{% url 'articleapp:list' %}">
+    <div style = "font-size : 1.5rem" class = "pragmatic_header_navbar">
+        <a href = "{% url 'articleapp:list' %}" class = "pragmatic_header_nav">
             <span>Articles</span>
         </a>
-        <span>nav2</span>
-        <span>nav3</span>
+
+        <a href = "{% url 'projectapp:list' %}" class = "pragmatic_header_nav">
+            <span>Projects</span>
+        </a>
+
+
 
         {% if not user.is_authenticated %}
         <!--login이 되어 있지 않다면!-->
-        <a href = "{% url 'accountapp:login' %}?next={{ request.path }}">
+        <a href = "{% url 'accountapp:login' %}?next={{ request.path }}" class = "pragmatic_header_nav">
 <!--get방식으로 next변수의 값을 주는 거임. request.path는 현재 로그인화면을 요청한 경로. 즉 로그인화면 전 url을 의미함
 로그인이 성공했을 때, next를 참조하여 그리로 이동하는데, request.path가 로그인의 경로임           -->
             <span>login</span>
         </a>
 
-        <a href = "{% url 'accountapp:create' %}">
+        <a href = "{% url 'accountapp:create' %}" class = "pragmatic_header_nav">
             <span>SignUp</span>
         </a>
 
 
         {% else %}
-        <a href = "{% url 'accountapp:detail' pk=user.pk %}">
+        <a href = "{% url 'accountapp:detail' pk=user.pk %}" class = "pragmatic_header_nav">
         <!--로그인을 했다면, 유저정보가 있음 > 유저의 pk정보가 있음. 또한, urls.py에서 user.pk를 받으므로, 그것을 여기서 제공해줘야 함-->
             <span>MyPage</span>
         </a>
-         <a href = "{% url 'accountapp:logout' %}?next={{ request.path }}">
+         <a href = "{% url 'accountapp:logout' %}?next={{ request.path }}" class = "pragmatic_header_nav">
             <span>logout</span>
         </a>
 

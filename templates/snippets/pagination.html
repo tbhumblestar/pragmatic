@@ -3,18 +3,24 @@
     <!--이전 페이지가 존재하는지 확인할 수 있음
     그리고, page_obj위의 사용처럼, 현재페이지에 대한 정보를 가진 다양한 객체가 있음-->
 
-    <a href = "{% url 'articleapp:list' %}?page={{ page_obj.previous_page_number }}"
+    <a href = "?page={{ page_obj.previous_page_number }}"
         class = "btn btn-secondary rounded-pill">
+<!--원래는
+<a href = "{% url 'articleapp:list' %}?page={{ page_obj.previous_page_number }}"
+        class = "btn btn-secondary rounded-pill">
+였음. ?앞부분을 그냥 다지우니까, 뒤에 있는 get파라미터만 바뀌고, 앞부분은 원래 주소가 유지됨
+>즉 article뿐만 아니라 다른 app(projectapp등)에서도 사용할 수 있게 됨
+-->
         {{ page_obj.previous_page_number }}
     </a>
     {% endif %}
-    <a href = "{% url 'articleapp:list' %}?page={{ page_obj.number }}"
+    <a href = "?page={{ page_obj.number }}"
         class = "btn btn-secondary rounded-pill">
         {{ page_obj.number }}
     </a>
     {% if page_obj.has_next %}
     <!--다음 페이지가 존재하는지 확인할 수 있음-->
-    <a href = "{% url 'articleapp:list' %}?page={{ page_obj.next_page_number }}"
+    <a href = "?page={{ page_obj.next_page_number }}"
         class = "btn btn-secondary rounded-pill">
         {{ page_obj.next_page_number }}
     </a>

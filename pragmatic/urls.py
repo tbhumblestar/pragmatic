@@ -24,6 +24,8 @@ urlpatterns = [
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
     path('comments/', include('commentapp.urls')),
+    path('projects/', include('projectapp.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #MEDIA_URL : media파일들고올때 결합
 #document_root : media파일 저장위치

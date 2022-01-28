@@ -17,6 +17,7 @@
             <!--타겟유저의 profile이 존재한다면-->
             {% if target_user.profile %}
             <img src="{{ target_user.profile.image.url }}" alt = "" style = "height:10vw ;width: auto; border-radius:15rem ;margin-bottom:2rem;">
+<!--width: 12rem ;height:12rem; object fit:cover ;-->
             <h2>
                 {{ target_user.profile.nickname }}
                     {% if target_user == user  %}

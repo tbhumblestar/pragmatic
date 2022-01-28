@@ -13,33 +13,33 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import HelloWorld
+# from accountapp.models import HelloWorld
 
 # has_ownership = [account_ownership_required, login_required]
 from articleapp.models import Article
 
-
-@login_required #login이 되어있는지 안되어있는지를 확인해줌
-def hello_world(request):
-    if request.method == "POST":
-        temp = request.POST.get("hello_world_input")#hello_world.html에서 받은 것
-
-        new_hello_world = HelloWorld() #HelloWorld()는 models.py에서 들고온 클래스(db)임
-        new_hello_world.text = temp
-        new_hello_world.save() #temp로 받은 hello_world_input를 db에 저장하는 거임
-        #이렇게 하면 db에 저장하는 것임
-
-        hello_world_list = HelloWorld.objects.all()
-        #objects.all : DB에 저장된 모든걸 다 긁어옴
-
-        return HttpResponseRedirect(reverse('accountapp:hello_world'))
-        #redirect를 return함. > redirect로 접근시 get메소드로 접속하게 됨 . 즉 post로 요청받은 작업을 끝내자마자 바로 get메소드로 다시 요청을 하게하는 것임. 이렇게 안하면 새로고침시, post명령이 계속 반복되어서 조질 수도 있음
-        #reverse는 urls.py에서 선언해준 app_name / path의 name을 통해서 좀 더 편하게 접근할 수 있도록 해줌 > 원래라면 'accountapp/hello_world.html' 이런식으로 접근해야 했을 것임
-
-    else:
-        hello_world_list = HelloWorld.objects.all()  # objects.all : 모든걸 다 긁어옴
-        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
-        #context는 추가적인 데이터꾸러미임\
+#필요없는 부분인긴한데, 나중에 공부를 위해 남겨둠
+# @login_required #login이 되어있는지 안되어있는지를 확인해줌
+# def hello_world(request):
+#     if request.method == "POST":
+#         temp = request.POST.get("hello_world_input")#hello_world.html에서 받은 것
+#
+#         new_hello_world = HelloWorld() #HelloWorld()는 models.py에서 들고온 클래스(db)임
+#         new_hello_world.text = temp
+#         new_hello_world.save() #temp로 받은 hello_world_input를 db에 저장하는 거임
+#         #이렇게 하면 db에 저장하는 것임
+#
+#         hello_world_list = HelloWorld.objects.all()
+#         #objects.all : DB에 저장된 모든걸 다 긁어옴
+#
+#         return HttpResponseRedirect(reverse('accountapp:hello_world'))
+#         #redirect를 return함. > redirect로 접근시 get메소드로 접속하게 됨 . 즉 post로 요청받은 작업을 끝내자마자 바로 get메소드로 다시 요청을 하게하는 것임. 이렇게 안하면 새로고침시, post명령이 계속 반복되어서 조질 수도 있음
+#         #reverse는 urls.py에서 선언해준 app_name / path의 name을 통해서 좀 더 편하게 접근할 수 있도록 해줌 > 원래라면 'accountapp/hello_world.html' 이런식으로 접근해야 했을 것임
+#
+#     else:
+#         hello_world_list = HelloWorld.objects.all()  # objects.all : 모든걸 다 긁어옴
+#         return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
+#         #context는 추가적인 데이터꾸러미임\
 
 
 

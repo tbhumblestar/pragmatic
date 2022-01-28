@@ -21,8 +21,11 @@
             <h2>
                 {{ target_user.profile.nickname }}
                     {% if target_user == user  %}
-                <a href = "{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                <a class ="material-icons"
+                   style =" box-shadow:0 0 4px #ccc ; border-radius:5rem ;padding:.4rem; "
+                    href = "{% url 'profileapp:update' pk=target_user.profile.pk %}">
                     edit
+                    <!--box-shadow : 그림자 / x위치 y위치 그림자크기 그림자색-->
                 </a>
                 <h5 style = "margin:0.8rem 0">
                     {{ target_user.profile.message }}
@@ -48,13 +51,15 @@
             <!--target_user 가 user와 같다면
             즉 여기서 알 수 있듯이, target_user도 넘어오고, user도 넘어온다는 것임임-->
             <a href = "{% url 'accountapp:update' pk=user.pk %}">
-                <p>
-                    Change Info
-                </p>
+                    Change Password
+                <span class ="material-icons md-18" style =" box-shadow:0 0 4px #ccc ; border-radius:5rem ;padding:0">
+                    password
+                </span>
             </a>
+
             <a href = "{% url 'accountapp:delete' pk=user.pk %}">
                 <p>
-                    Quit
+                    Account Delete
                 </p>
             </a>
             {% endif %}

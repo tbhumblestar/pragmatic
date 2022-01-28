@@ -35,6 +35,10 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
         if user.is_authenticated:
             subscription = Subscription.objects.filter(user=user, project=project)
 
+        else: #else부분 이렇게 해줘야 오류안뜸뜸
+           subscription = None
+
+
         return super(ProjectDetailView, self).get_context_data(object_list=object_list,subscription=subscription, **kwargs)
         #obejct_list라는 객체를 활용해 필터링을 시켜준 것임임
         #결과적으로 필터링된 object_list라는 놈을 html랜더링할때, 그 html에 같이 던져줌

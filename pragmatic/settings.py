@@ -160,8 +160,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGIN_REDIRECT_URL = reverse_lazy('home')
 #login성공시 redirect 주소
+#urls.py에 'home'이라는 이름의 path를 설정해두었음
+
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 #logout성공시 redirect 주소
 

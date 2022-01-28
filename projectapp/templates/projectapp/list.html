@@ -26,6 +26,8 @@
     </style>
 
 {% if project_list %}
+<!--context_object_name을 project_list로 주기 떄문에 위의 코드가 가능한 것임-->
+
 <div class="container">
     {% for project in project_list %}
   <a href ="{% url 'projectapp:detail' pk=project.pk %}">

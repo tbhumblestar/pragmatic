@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
+from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
@@ -61,7 +62,7 @@ class AccountCreateView(CreateView):
 #views_decorator not used에 원래 함수를 만들어서 적용한 방식이 존재함
 
 
-class AccountDetailView(DetailView):#Detailview > readview
+class AccountDetailView(DetailView, MultipleObjectMixin):#Detailview > readview
     model = User
     context_object_name = 'target_user'
     #context_object_name은 장고에서 제공하는 기능으로, context_object_name에 문자열을 할당하면
@@ -73,6 +74,11 @@ class AccountDetailView(DetailView):#Detailview > readview
 
     template_name = 'accountapp/detail.html'
     #detailview는 그냥 어떤 모델을쓸지, 그리고 어떤 템플릿을 사용해서 시각화해줄지 정도만 정해주면됨
+
+    paginate_by = 25
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(writer=self.get_object())
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 
 @method_decorator(account_ownership_required, 'get')

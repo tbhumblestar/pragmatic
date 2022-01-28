@@ -28,8 +28,8 @@
 {% if project_list %}
 <div class="container">
     {% for project in project_list %}
-  <a href ="{% url 'articleapp:detail' pk=article.pk %}">
-      {% include 'snippets/card.html' with project=project %}
+  <a href ="{% url 'projectapp:detail' pk=project.pk %}">
+      {% include 'snippets/card_project.html' with project=project %}
         <!--위에 구문의 뜻 : snippets/card.html 파일을 가져올때의 article은
         지금 쓰이고 있는 article이다(with에 의해서 그런 의미가 됨됨-->
   </a>
@@ -46,7 +46,7 @@
 <!--page_obj에 현재 페이지에 대한 정보가 담겨져 잇음-->
 
 <div style = "text-align:center">
-    <a href = "{% url 'articleapp:create' %}" class = "btn btn-dark rounded-pill px-3 mt-3 mb-3">
+    <a href = "{% url 'projectapp:create' %}" class = "btn btn-dark rounded-pill px-3 mt-3 mb-3">
         Create Article
     </a>
 </div>

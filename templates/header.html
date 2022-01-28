@@ -12,6 +12,10 @@
             <span>Projects</span>
         </a>
 
+        <a href = "{% url 'subscribeapp:list' %}" class = "pragmatic_header_nav">
+            <span>subscription</span>
+        </a>
+
 
 
         {% if not user.is_authenticated %}

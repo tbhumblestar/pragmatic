@@ -33,7 +33,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
         project = self.object
         user = self.request.user
         if user.is_authenticated:
-            subscription = Subscription.objects.filter(user=user,project=project)
+            subscription = Subscription.objects.filter(user=user, project=project)
 
         return super(ProjectDetailView, self).get_context_data(object_list=object_list,subscription=subscription, **kwargs)
         #obejct_list라는 객체를 활용해 필터링을 시켜준 것임임

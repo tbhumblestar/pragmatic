@@ -2,7 +2,7 @@ FROM python:3.9.10
 
 WORKDIR /home/
 
-RUN git clone git@github.com:tbhumblestar/djangopinteterstInBusan.git
+RUN git clone https://github.com/tbhumblestar/pragmatic.git
 
 WORKDIR /home/pragmatic
 

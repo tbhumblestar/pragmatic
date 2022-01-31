@@ -8,6 +8,16 @@
     {% include 'header.html' %}
     <hr>
 <!--    #content라는 block을 만들어줌. block은 endblock으로 어디까지가 block인지를 명시해줘야 함-->
+
+    {% for message in messages %}
+    <!--메세지가 있으면 출력함-->
+    <div class = "text-center">
+        <div class = "btn btn-{{ message.tags }} rounded-pill px-5">
+            {{ message }}
+        </div>
+    </div>
+
+    {% endfor %}
     {% block content %}
     {% endblock %}
     <hr>

@@ -18,7 +18,7 @@ class SubscriptionView(RedirectView):
         return reverse('projectapp:detail', kwargs={'pk': self.request.GET.get('project_pk')})
         #project_pk를 get방식으로 받아서, detail/pk로 이동하게 하는것
         #url로 이동할 때, get방식으로 정보를 받을 것임
-    #   #get메소드가 끝이나면 얘가 수행됨
+    #   #get메소드로, 해당 url로 redirect
 
     def get(self, request, *args, **kwargs):
         #get요청이 들어올 경우 자동으로 수행됨 즉 get메소드로 들어올 경우에 얘가 무조건 사용된다.

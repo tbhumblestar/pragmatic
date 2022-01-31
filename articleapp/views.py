@@ -13,7 +13,7 @@ from articleapp.models import Article
 from commentapp.forms import CommentCreationForm
 
 
-@method_decorator(login_required, 'get')
+@method_decorator(login_required, 'get') #get,post에 대해 로그인이 되어 있는지 확인하는 것. 로그인 되어 있지 않으면 실행안됨
 @method_decorator(login_required, 'post')
 class ArticleCreateView(CreateView):
     model = Article

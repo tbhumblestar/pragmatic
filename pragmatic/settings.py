@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import environ
 from django.urls import reverse_lazy
+from django.contrib.messages import constants as messages
 
 env = environ.Env(
     # set casting, default value
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     'commentapp',
     'projectapp',
     'subscribeapp',
+    'likeapp',
 
 ]
 
@@ -172,3 +174,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #media파일이 저장되는 곳
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}#Error메세지의 태그를 'danger'로 수정

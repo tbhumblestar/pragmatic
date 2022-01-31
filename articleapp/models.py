@@ -22,3 +22,6 @@ class Article(models.Model):
 
     created_at = models.DateField(auto_created=True,null = True)\
     #자동으로 완성됨
+
+    like = models.IntegerField(default=0)
+    #좋아요를 위함

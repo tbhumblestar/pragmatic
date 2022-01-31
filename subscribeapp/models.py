@@ -14,6 +14,6 @@ class Subscription(models.Model):
     # 그러면 결국, User와 Project가 묶이는 거임(쌍이 되는 거임)
 
     class Meta:
-        unique_together = ('user','project')
+        unique_together = ('user', 'project')
     #user와 project가 갖는 쌍이 오직 하나만 있도록 해주는 것임
 

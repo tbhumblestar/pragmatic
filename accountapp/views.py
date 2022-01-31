@@ -53,7 +53,7 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('accountapp:hello_world')
     #함수형과는 다르게, 클래스에서는 reverse_lazy를 사용해야 함
 
-    template_name = 'accountapp/create.html'
+    template_name = 'Home'
     #회원가입을 할때, 볼 html
 
 

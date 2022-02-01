@@ -16,33 +16,12 @@ import environ
 from django.urls import reverse_lazy
 from django.contrib.messages import constants as messages
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 #이 파일(setting.py)의 parent의 parent 즉 맨위의 pragmatic를(최상위 pragmatic폴더의 경로를)
 #Base 경로로 삼겠다.
 
 
-# reading .env file
-environ.Env.read_env(
-    env_file=os.path.join(BASE_DIR, '.env')
-)
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -96,17 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pragmatic.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-#이 base_dir아래의 db.sqlite3에 모든 db정보가 저장되고 있는 것임
-#엔진은 db의 종류를 말함
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

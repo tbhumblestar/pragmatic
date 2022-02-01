@@ -1,5 +1,6 @@
 FROM python:3.9.10
 
+RUN echo "testingagain"
 RUN echo "testing"
 
 RUN git clone https://github.com/tbhumblestar/pragmatic.git

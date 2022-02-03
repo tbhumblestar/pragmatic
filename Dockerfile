@@ -1,11 +1,10 @@
 FROM python:3.9.10
 
-RUN echo "testingagain"
-RUN echo "testing"
+RUN echo "testing23422"
 
 RUN git clone https://github.com/tbhumblestar/pragmatic.git
 
-WORKDIR /pragmatic
+WORKDIR /pragmatic/
 
 RUN pip install -r requirements.txt
 

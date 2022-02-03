@@ -50,10 +50,10 @@ class AccountCreateView(CreateView):
     form_class = UserCreationForm
     #장고에서 기본적으로 제공해주는, 계정 생성을 위한 '폼'. 템플릿이 아님!!
 
-    success_url = reverse_lazy('accountapp:hello_world')
+    success_url = reverse_lazy('home')
     #함수형과는 다르게, 클래스에서는 reverse_lazy를 사용해야 함
 
-    template_name = 'Home'
+    template_name = 'accountapp/create.html'
     #회원가입을 할때, 볼 html
 
 
@@ -75,7 +75,7 @@ class AccountDetailView(DetailView, MultipleObjectMixin):#Detailview > readview
     template_name = 'accountapp/detail.html'
     #detailview는 그냥 어떤 모델을쓸지, 그리고 어떤 템플릿을 사용해서 시각화해줄지 정도만 정해주면됨
 
-    paginate_by = 25
+    paginate_by = 9
     def get_context_data(self, **kwargs):
         object_list = Article.objects.filter(writer=self.get_object())
         return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
@@ -92,7 +92,7 @@ class AccountUpdateView(UpdateView): #create view와 매우 유사
     form_class = AccountUpdateForm
     #장고에서 기본적으로 제공해주는, 계정 생성을 위한 '폼'. 템플릿이 아님!!
 
-    success_url = reverse_lazy('accountapp:hello_world')
+    success_url = reverse_lazy('home')
     #함수형과는 다르게, 클래스에서는 reverse_lazy를 사용해야 함
     context_object_name = 'target_user'
     template_name = 'accountapp/update.html'

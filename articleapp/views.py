@@ -67,6 +67,6 @@ class ArticleListView(ListView):
     context_object_name = "article_list"
     template_name = "articleapp/list.html"
 
-    paginate_by = 6
+    paginate_by = 9
     #한페이지당 게시글 개수. list뷰는 이게 하나 더 필요함
 

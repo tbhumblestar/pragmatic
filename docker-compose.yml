@@ -1,0 +1,59 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx:1.21.6
+    networks:
+      - network
+    volumes:
+      - /home/django_course/nginx.conf:/etc/nginx/nginx.conf
+      - static-volume:/data/static
+      - media-volume:/data/media
+    ports:
+      - 80:80
+
+  django_container_gunicorn:
+    image: django_image
+    networks:
+      - network
+    volumes:
+      - static-volume:/pragmatic/staticfiles/
+      - media-volume:/pragmatic/media/
+    secrets:
+      - MARIADB_PASSWORD
+      - DJANGO_SECRET_KEY
+
+  mariadb:
+    image: mariadb:10.7
+    networks:
+      - network
+    volumes:
+      - maria-database:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: /run/secrets/MARIADB_PASSWORD
+      MARIADB_ROOT_PASSWORD: /run/secrets/MARIADB_ROOT_PASSWORD
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_PASSWORD
+
+
+networks:
+  network:
+
+volumes:
+  static-volume:
+  media-volume:
+  maria-database:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  MARIADB_PASSWORD:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+
+
+
+

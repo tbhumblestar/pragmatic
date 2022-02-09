@@ -1,6 +1,6 @@
 FROM python:3.9.10
 
-RUN echo "test13231asdasdasdas4141"
+RUN echo "test13231asdaasdasdasdsdasdas4141"
 
 RUN git clone https://github.com/tbhumblestar/pragmatic.git
 

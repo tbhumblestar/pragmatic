@@ -36,7 +36,7 @@ DEBUG = False
 #debug : 개발중인 상태를 의미. True이면 개발중이다
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://www.humblebee.site/']
+CSRF_TRUSTED_ORIGINS = ['https://www.humblebee.site']
 
 
 # Database

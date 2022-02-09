@@ -1,5 +1,7 @@
 from .base import *
 
+SESSION_COOKIE_SECURE = True
+
 def read_secret(secret_name):
     file = open('/run/secrets/' + secret_name)
     #docker에서 설정한 secret들은 여기에 파일형태로 저장이 됨
@@ -34,7 +36,7 @@ DEBUG = False
 #debug : 개발중인 상태를 의미. True이면 개발중이다
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['https://www.humblebee.site/']
 
 
 # Database

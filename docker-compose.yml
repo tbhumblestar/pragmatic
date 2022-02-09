@@ -28,14 +28,14 @@ services:
       - network
     volumes:
       - maria-database:/var/lib/mysql
+    secrets:
+      - MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD
     environment:
       MARIADB_DATABASE: django
       MARIADB_USER: django
-      MARIADB_PASSWORD: /run/secrets/MARIADB_PASSWORD
-      MARIADB_ROOT_PASSWORD: /run/secrets/MARIADB_ROOT_PASSWORD
-    secrets:
-      - MARIADB_ROOT_PASSWORD
-      - MARIADB_PASSWORD
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
 
 
 networks:

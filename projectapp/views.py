@@ -23,7 +23,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
 
-    paginate_by = 9
+    paginate_by = 15
 
     def get_context_data(self, **kwargs):
         object_list = Article.objects.filter(project=self.get_object())

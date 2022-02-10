@@ -75,7 +75,7 @@ class AccountDetailView(DetailView, MultipleObjectMixin):#Detailview > readview
     template_name = 'accountapp/detail.html'
     #detailview는 그냥 어떤 모델을쓸지, 그리고 어떤 템플릿을 사용해서 시각화해줄지 정도만 정해주면됨
 
-    paginate_by = 9
+    paginate_by = 12
     def get_context_data(self, **kwargs):
         object_list = Article.objects.filter(writer=self.get_object())
         return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
